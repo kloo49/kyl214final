@@ -75,7 +75,7 @@ max(big_frame_select_longer$Sample_Date)
 max(big_frame_select_longer$Sample_Date) - min(big_frame_select_longer$Sample_Date)
 # Time difference of 12642 days
 
-window_start <- seq(ymd("1986-05-20"),ymd("2020-12-29"), by = "7 days")
+start_window <- seq(ymd("1986-05-20"),ymd("2020-12-29"), by = "7 days")
 window_end <- window_start + days(7)
 tibble_mov_avg <- tibble(big_frame_select_longer$Sample_ID, window_start,window_end, "mean_K" = NA, "mean_Mg" = NA, "mean_Ca" = NA, "mean_no3-n" = NA, "mean_nh4-n" = NA)
 tibble_mov_avg <- tibble("site" = NA, window_start,window_end, "mean_K" = NA, "mean_Mg" = NA, "mean_Ca" = NA, "mean_no3-n" = NA, "mean_nh4-n" = NA)
