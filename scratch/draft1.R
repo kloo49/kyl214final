@@ -95,5 +95,7 @@ for (i in nrow(tibble_mov_avg)) {
   tibble_mov_avg$'mean_nh4-n'[i] <- mean_nh4
   mean_no3 <- mean(big_frame_select$`NO3-N`[start_date >= big_frame_select$Sample_Date & end_date < big_frame_select$Sample_Date])
   tibble_mov_avg$'mean_no3-n'[i] <- mean_no3
+  print(paste(start_date, end_date))
 }
 glimpse(tibble_mov_avg)
+
