@@ -100,9 +100,11 @@ for (i in 1:nrow(tibble_mov_avg)) {
   tibble_mov_avg$'mean_nh4-n'[i] <- mean_nh4
   mean_no3 <- mean(big_frame_select$`NO3-N`[start_date <= big_frame_select$Sample_Date & end_date > big_frame_select$Sample_Date])
   tibble_mov_avg$'mean_no3-n'[i] <- mean_no3
+  print(paste(start_date, end_date))
 }
 glimpse(tibble_mov_avg)
 
+<<<<<<< HEAD
 tibble_mov_avg_longer <- tibble_mov_avg |> 
   pivot_longer(
     cols = "mean_K":"mean_nh4-n",
@@ -129,3 +131,5 @@ ggplot(
     scales = "free",
     ncol = 1
   )
+=======
+>>>>>>> cfe88ba7e6fb6b9eeeb24bec6730d15968bec6a9
