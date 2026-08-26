@@ -3,7 +3,7 @@ After Hurricane Hugo made impact on Puerto Rico in 1989, Schaefer et al. ([2000]
 
 This project aims to replicate Figure 3 from Schaefer et al. ([2000](https://doi.org/10.1017/s0266467400001358)) as shown below. We focused on potassium, nitrate, magnesium, calcium, and ammonium at four sites. The four sites are Puente Roto Mameyes (PRM), Quebrada one-Bisley (BQ1), Quebrada two-Bisley (BQ2), and Quebrada three-Bisley (BQ3).
 
-![ion concentration graph](fig3.png){width="500" height="800"}
+![ion concentration graph](/figs/schaefer_fig3.png){width="500" height="800"}
 <!-- <img src="fig3.png" alt="graph of ion concentration" width="500" height="800" class="center"> -->
 
 _Concentration of (a) potassium, (b) nitrate, (c) magnesium, (d) calcium, and (e) ammonium sampled in Bisley, Puerto Rico after Hurricane Hugo._
