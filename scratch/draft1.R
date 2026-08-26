@@ -104,7 +104,6 @@ for (i in 1:nrow(tibble_mov_avg)) {
 }
 glimpse(tibble_mov_avg)
 
-<<<<<<< HEAD
 tibble_mov_avg_longer <- tibble_mov_avg |> 
   pivot_longer(
     cols = "mean_K":"mean_nh4-n",
@@ -131,5 +130,3 @@ ggplot(
     scales = "free",
     ncol = 1
   )
-=======
->>>>>>> cfe88ba7e6fb6b9eeeb24bec6730d15968bec6a9
