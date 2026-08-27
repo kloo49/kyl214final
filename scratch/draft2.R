@@ -47,4 +47,34 @@ ggplot(
                             nh4_ugl="NH4-N ug l^-1",
                             no3_ugl="NO3-N ug l^-1"))
   ) +
-  theme_bw()
+  theme_bw() +
+  geom_vline(xintercept = ym("1989-09"), linetype = "dashed")
+
+# second ggplot with the dates in the paper
+ggplot(
+  data = big_frame_longer,
+  mapping = aes(
+    x = window_start,
+    y = concentration,
+    color = site
+  )
+) +
+  geom_line() +
+  labs(
+    title = "Moving average of ions in stream water",
+    x = "Years"
+  ) +
+  facet_wrap(
+    ~ions,
+    scales = "free",
+    ncol = 1,
+    strip.position = "left",
+    labeller = as_labeller(c(k_mgl="K mg l^-1",
+                            ca_mgl="Ca mg l^-1",
+                            mg_mgl="Mg mg l^-1",
+                            nh4_ugl="NH4-N ug l^-1",
+                            no3_ugl="NO3-N ug l^-1"))
+  ) +
+  theme_bw() +
+  geom_vline(xintercept = ym("1989-09"), linetype = "dashed") +
+  xlim(ym("1988-01"), ym("1994-01"))

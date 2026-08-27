@@ -15,15 +15,8 @@ site3_select <- site3 |>
 site4_select <- site4 |> 
   select(c("Sample_ID", "Sample_Date", "K", "NO3-N", "Mg", "Ca", "NH4-N"))
 
-tibble1 <- tibble("site" = NA)
-view(tibble1)
-tibble1 <- tibble("site" = NA, "window" = NA)
-view(tibble1)
-tibble1 <- tibble("site" = NA, "window" = NA, "mean_K" = NA)
-view(tibble1)
 tibble1 <- tibble("site" = NA, "window" = NA, "mean_K" = NA, "mean_Mg" = NA, "mean_Ca" = NA, "mean_no3-n" = NA, "mean_nh4-n" = NA)
 tibble2 <- tibble("site" = NA, "window" = NA, "mean_K" = NA, "mean_Mg" = NA, "mean_Ca" = NA, "mean_no3-n" = NA, "mean_nh4-n" = NA)
-view(tibble2)
 tibble3 <- tibble("site" = NA, "window" = NA, "mean_K" = NA, "mean_Mg" = NA, "mean_Ca" = NA, "mean_no3-n" = NA, "mean_nh4-n" = NA)
 tibble4 <- tibble("site" = NA, "window" = NA, "mean_K" = NA, "mean_Mg" = NA, "mean_Ca" = NA, "mean_no3-n" = NA, "mean_nh4-n" = NA)
 
