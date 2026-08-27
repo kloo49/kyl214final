@@ -9,10 +9,15 @@ This project aims to replicate Figure 3 from Schaefer et al. ([2000](https://doi
 _Concentration of (a) potassium, (b) nitrate, (c) magnesium, (d) calcium, and (e) ammonium sampled in Bisley, Puerto Rico after Hurricane Hugo._
 
 ## Repo structure
+- [`R`](https://github.com/kloo49/kyl214final/tree/main/R): self-defined functions used in code
 - [`data`](https://github.com/kloo49/kyl214final/tree/main/data): raw data in .csv format, one for each site.
     - data is accessed through the [Environmental Data Initiative](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-luq.20.4923064), by International Institute of Tropical Forestry(IITF), USDA Forest Service.
+- [`docs`](https://github.com/kloo49/kyl214final/tree/main/docs): html file that the GitHub page sources
 - [`figs`](https://github.com/kloo49/kyl214final/tree/main/figs): contains relevant figures to the project.
+- [`paper`](https://github.com/kloo49/kyl214final/tree/main/paper): Output of the project details, organized
 - [`scratch`](https://github.com/kloo49/kyl214final/tree/main/scratch): prior drafts of scripts, for my personal use.
+
+<img src="/figs/fig3updated.png" alt="my graph of ion concentration up until 2020" width="500" height="800" class="center">
 
 ### Source
 - **Author**: Kelly Loo, [kloo@ucsb.edu](kloo@ucsb.edu)
