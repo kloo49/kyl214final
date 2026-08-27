@@ -11,7 +11,7 @@ All scripts run without errors--  beautiful graph!
 ### The analysis produces the expected output: Meets spec
 The Quarto document sucessfully performs the data analysis and creates a figure.  I like the inclusion of both the reproduced figure and the figure with the updated time.  Beautiful work formatting the figure!
 
-If you want to make it even more like the original, you could add the variation in line types (which also makes it accessible to people with colorblindness).  Adjusting the facet labels to read in mg/L instead of mg l^-1 will also make them a little more readable.  Check capitlization on the axis and label titles.
+If you want to make it even more like the original, you could add the variation in line types (which also makes it accessible to people with colorblindness).  Adjusting the facet labels to read in mg/L instead of mg l^-1 will also make them a little more readable.  Check capitalization on the axis and legend titles.
 
 ## Organize
 ### Data are properly organized: Meets spec
@@ -25,7 +25,7 @@ Informative title, concise summary of Schaefer et al. (2000), and clear purpos. 
 
 Description of what's in the repo is well-formated and makes the repo easy to navigate.
 
-### Code follows a professional style
+### Code follows a professional style: Meets spec
 Code style is efficient and effectively utilizes Air to improve readability.  The number of comments is appropriate and helpfully explain why certain code is used.
 
 All around great work!  I'm impressed that you got so much done so quickly!
