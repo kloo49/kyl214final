@@ -1,0 +1,67 @@
+# Background
+After Hurricane Hugo made impact on Puerto Rico in 1989, Schaefer et al. ([2000](https://doi.org/10.1017/s0266467400001358)) studied the long-term stream water quality in Bisley, Puerto Rico.
+
+This project aims to replicate Figure 3 from Schaefer et al. ([2000](https://doi.org/10.1017/s0266467400001358)). We focused on potassium, nitrate, magnesium, calcium, and ammonium at four sites. The four sites are Puente Roto Mameyes (PRM), Quebrada one-Bisley (BQ1), Quebrada two-Bisley (BQ2), and Quebrada three-Bisley (BQ3).
+
+# Data
+Data is accessed through the [Environmental Data Initiative](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-luq.20.4923064), by International Institute of Tropical Forestry(IITF), USDA Forest Service.
+```{r}
+library(tidyverse)
+bq1 <- read_csv("../data/QuebradaCuenca1-Bisley.csv")
+bq2 <- read_csv("../data/QuebradaCuenca2-Bisley.csv")
+bq3 <- read_csv("../data/QuebradaCuenca3-Bisley.csv")
+prm <- read_csv("../data/RioMameyesPuenteRoto.csv")
+```
+
+# Methods
+The watersheds in this study were all located in the Rio Mameyes drainage basin within Luquillo Experimental Forest (LEF) in northeastern Puerto Rico.  
+From the EDI database, we downloaded the dataset for Puente Royo Mameyes and Bisley Quebrada 1, 2, and 3.
+When reading in the data, we defined a function that calculated the ion concentration level for a 9-week moving average by site for potassium, calcium, magnesium, ammonium, and nitrate. 
+
+```{r}
+source("../R/moving-average.R")
+
+bq1_mvavg <- moving_average("BQ1", bq1)
+bq2_mvavg <- moving_average("BQ2", bq2)
+bq3_mvavg <- moving_average("BQ3", bq3)
+prm_mvavg <- moving_average("PRM", prm)
+
+big_frame <- bind_rows(bq1_mvavg, bq2_mvavg, bq3_mvavg, prm_mvavg)
+glimpse(big_frame)
+
+big_frame_longer <- big_frame |> 
+  pivot_longer(
+    cols = "k_mgl":"no3_ugl",
+    names_to = "ions",
+    values_to = "concentration"
+  )
+```
+
+# Results
+```{r}
+ggplot(
+  data = big_frame_longer,
+  mapping = aes(
+    x = window_start,
+    y = concentration,
+    color = site
+  )
+) +
+  geom_line() +
+  labs(
+    title = "Moving average of ions in stream water",
+    x = "Years"
+  ) +
+  facet_wrap(
+    ~ions,
+    scales = "free",
+    ncol = 1,
+    strip.position = "left",
+    labeller = as_labeller(c(k_mgl="K mg l^-1",
+                            ca_mgl="Ca mg l^-1",
+                            mg_mgl="Mg mg l^-1",
+                            nh4_ugl="NH4-N ug l^-1",
+                            no3_ugl="NO3-N ug l^-1"))
+  ) +
+  theme_bw()
+```
