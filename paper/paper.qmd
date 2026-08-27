@@ -5,7 +5,7 @@ This project aims to replicate Figure 3 from Schaefer et al. ([2000](https://doi
 
 # Data
 Data is accessed through the [Environmental Data Initiative](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-luq.20.4923064), by International Institute of Tropical Forestry(IITF), USDA Forest Service.
-```{r}
+```{r, output = FALSE}
 library(tidyverse)
 bq1 <- read_csv("../data/QuebradaCuenca1-Bisley.csv")
 bq2 <- read_csv("../data/QuebradaCuenca2-Bisley.csv")
@@ -18,7 +18,7 @@ The watersheds in this study were all located in the Rio Mameyes drainage basin 
 From the EDI database, we downloaded the dataset for Puente Royo Mameyes and Bisley Quebrada 1, 2, and 3.
 When reading in the data, we defined a function that calculated the ion concentration level for a 9-week moving average by site for potassium, calcium, magnesium, ammonium, and nitrate. 
 
-```{r}
+```{r, output = FALSE}
 source("../R/moving-average.R")
 
 bq1_mvavg <- moving_average("BQ1", bq1)
@@ -65,3 +65,7 @@ ggplot(
   ) +
   theme_bw()
 ```
+
+## References
+- McDowell, William H., and USDA Forest Service. International Institute Of Tropical Forestry (IITF). 2024. “Chemistry of Stream Water from the Luquillo Mountains.” Environmental Data Initiative. [doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458.](https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458)
+- Schaefer, Douglas. A., William H. McDowell, Fredrick N Scatena, and Clyde E. Asbury. 2000. “Effects of Hurricane Disturbance on Stream Water Concentrations and Fluxes in Eight Tropical Forest Watersheds of the Luquillo Experimental Forest, Puerto Rico.” Journal of Tropical Ecology 16 (2): 189–207. [doi.org/10.1017/s0266467400001358.](https://doi.org/10.1017/s0266467400001358)
