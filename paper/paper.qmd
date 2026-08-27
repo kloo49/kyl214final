@@ -4,7 +4,7 @@ After Hurricane Hugo made impact on Puerto Rico in 1989, Schaefer et al. ([2000]
 This project aims to replicate Figure 3 from Schaefer et al. ([2000](https://doi.org/10.1017/s0266467400001358)). We focused on potassium, nitrate, magnesium, calcium, and ammonium at four sites. The four sites are Puente Roto Mameyes (PRM), Quebrada one-Bisley (BQ1), Quebrada two-Bisley (BQ2), and Quebrada three-Bisley (BQ3).
 
 # Data
-Data is accessed through the [Environmental Data Initiative](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-luq.20.4923064), by International Institute of Tropical Forestry(IITF), USDA Forest Service.
+Data is accessed through the [Environmental Data Initiative](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-luq.20.4923064), by International Institute of Tropical Forestry (IITF), USDA Forest Service.
 ```{r, output = FALSE}
 library(tidyverse)
 bq1 <- read_csv("../data/QuebradaCuenca1-Bisley.csv")
