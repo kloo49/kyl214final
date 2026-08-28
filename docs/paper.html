@@ -26,41 +26,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -103,53 +68,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>Data is accessed through the <a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-luq.20.4923064">Environmental Data Initiative</a>, by International Institute of Tropical Forestry (IITF), USDA Forest Service.<br>
-We extracted the Site ID, Sample Date, and the concentration of potassium, nitrate, magnesium, calcium, and ammonium from Puente Royo Mameyes and Bisley Quebrada 1, 2, and 3.</p>
+<p>Data is accessed through the <a href="https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-luq.20.4923064">Environmental Data Initiative</a>, by International Institute of Tropical Forestry (IITF), USDA Forest Service.</p>
+<p>We extracted the Site ID, Sample Date, and the concentration of potassium, nitrate, magnesium, calcium, and ammonium from Puente Royo Mameyes and Bisley Quebrada 1, 2, and 3.</p>
 </section>
 <section id="methods" class="level2">
 <h2 class="anchored" data-anchor-id="methods">Methods</h2>
 <p>The watersheds in this study were all located in the Rio Mameyes drainage basin within Luquillo Experimental Forest (LEF) in northeastern Puerto Rico.</p>
-<ol type="1">
-<li><p>From the EDI database, we downloaded the dataset for Puente Royo Mameyes and Bisley Quebrada 1, 2, and 3.</p></li>
-<li><p>When reading in the data, we defined a function that calculated the ion concentration level for a 9-week moving average by site for potassium, calcium, magnesium, ammonium, and nitrate from Jan 1, 1988 to Jan 1, 1995. We also had to factor and redefine the levels for the ions to match the order in Figure 3.</p>
+<p>We calculated the ion concentration level for a 9-week moving average by site for potassium, calcium, magnesium, ammonium, and nitrate from Jan 1, 1988 to Jan 1, 1995.</p>
 <ul>
 <li>A <em>moving average</em> is taking all the values within a time value (9 weeks in this case) and calculating the average value within that period.</li>
-</ul></li>
-<li><p>With the moving average dataframe, we are then able to plot the 5 ions with a vertical line that indicates the occurence of Hurricane Hugo.</p></li>
-</ol>
+</ul>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
 <p>In R, we utilize <code>ggplot()</code> in the R library <code>tidyverse</code> to replicate Figure 3 from Schaefer et al.&nbsp;(<a href="https://doi.org/10.1017/s0266467400001358">2000</a>).<br>
 The code is shown below:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mapping =</span> <span class="fu">aes</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> window_start,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> concentration,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> site</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Moving average of ions in stream water"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Years"</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="sc">~</span>ions,</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">scales =</span> <span class="st">"free"</span>,</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncol =</span> <span class="dv">1</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.position =</span> <span class="st">"left"</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">labeller =</span> <span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="at">k_mgl=</span><span class="st">"K mg/l"</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                            <span class="at">ca_mgl=</span><span class="st">"Ca mg/l"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>                            <span class="at">mg_mgl=</span><span class="st">"Mg mg/l"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                            <span class="at">nh4_ugl=</span><span class="st">"NH4-N ug/l"</span>,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>                            <span class="at">no3_ugl=</span><span class="st">"NO3-N ug/l"</span>))</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">ymd</span>(<span class="st">"1989-09-18"</span>), <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"PRM"</span> <span class="ot">=</span> <span class="st">"solid"</span>, <span class="st">"BQ1"</span> <span class="ot">=</span> <span class="st">"dotted"</span>, <span class="st">"BQ2"</span> <span class="ot">=</span> <span class="st">"dashed"</span>, <span class="st">"BQ3"</span> <span class="ot">=</span> <span class="st">"dotdash"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -165,6 +99,7 @@ Aside from the differences in data availability, we were able to successfully re
 <h3 class="anchored" data-anchor-id="source">Source</h3>
 <ul>
 <li><strong>Author</strong>: Kelly Loo, <a href="kloo@ucsb.edu">kloo@ucsb.edu</a></li>
+<li><strong>Collaborators</strong>: Oliver Witt, Oliva Knapp</li>
 <li><strong>Date Created</strong>: Aug 24, 2027</li>
 </ul>
 </section>

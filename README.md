@@ -10,17 +10,21 @@ _Concentration of (a) potassium, (b) nitrate, (c) magnesium, (d) calcium, and (e
 
 ## Repo structure
 - [`R`](https://github.com/kloo49/kyl214final/tree/main/R): self-defined functions used in code
+    - `moving-average.R`: function that calculated the ion concentration level for a 9-week moving average by site for potassium, calcium, magnesium, ammonium, and nitrate from Jan 1, 1988 to Jan 1, 1995
 - [`data`](https://github.com/kloo49/kyl214final/tree/main/data): raw data in .csv format, one for each site.
     - data is accessed through the [Environmental Data Initiative](https://portal.edirepository.org/nis/mapbrowse?packageid=knb-lter-luq.20.4923064), by International Institute of Tropical Forestry(IITF), USDA Forest Service.
 - [`docs`](https://github.com/kloo49/kyl214final/tree/main/docs): html file that the GitHub page sources
 - [`figs`](https://github.com/kloo49/kyl214final/tree/main/figs): contains relevant figures to the project.
+- [`output`](https://github.com/kloo49/kyl214final/tree/main/output): contains cleaned data.
 - [`paper`](https://github.com/kloo49/kyl214final/tree/main/paper): Output of the project details, organized
 - [`scratch`](https://github.com/kloo49/kyl214final/tree/main/scratch): prior drafts of scripts, for my personal use.
-
-<img src="/figs/fig3updated.png" alt="my graph of ion concentration up until 2020" width="500" height="800" class="center">
+- `1_clean_data.R`: Data wrangling from the raw data of the 4 sites.
+- `peer-assessment.md`: Peer assessment of the project specs.
+- `self-assessment.md`: Personal assessment of the project specs.
 
 ### Source
 - **Author**: Kelly Loo, [kloo@ucsb.edu](kloo@ucsb.edu)
+- **Collaborators**: Oliver Witt, Oliva Knapp
 - **Date Created**: Aug 24, 2027
 
 ### References
