@@ -24,8 +24,8 @@ _Concentration of (a) potassium, (b) nitrate, (c) magnesium, (d) calcium, and (e
 
 ### Source
 - **Author**: Kelly Loo, [kloo@ucsb.edu](kloo@ucsb.edu)
-- **Collaborators**: Oliver Witt, Oliva Knapp
-- **Date Created**: Aug 24, 2027
+- **Collaborators**: Oliver Witt, Olivia Knapp
+- **Date Created**: Aug 24, 2026
 
 ### References
 - McDowell, William H., and USDA Forest Service. International Institute Of Tropical Forestry (IITF). 2024. “Chemistry of Stream Water from the Luquillo Mountains.” Environmental Data Initiative. [doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458.](https://doi.org/10.6073/PASTA/F31349BEBDC304F758718F4798D25458)
