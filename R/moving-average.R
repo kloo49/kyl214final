@@ -1,6 +1,6 @@
 # The input to this function should be a data frame containing stream chemistry data
 moving_average <- function(site_id, ion_data) {
-  window_start <- seq(ymd("1986-05-20"),ymd("2020-12-29"), by = "9 weeks")
+  window_start <- seq(ymd("1986-05-20"),ymd("1995-01-01"), by = "9 weeks")
   window_end <- window_start + weeks(9)
   # Initialize a tibble to contain the results
   result <- tibble(
