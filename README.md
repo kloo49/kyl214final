@@ -19,6 +19,7 @@ _Concentration of (a) potassium, (b) nitrate, (c) magnesium, (d) calcium, and (e
 - [`paper`](https://github.com/kloo49/kyl214final/tree/main/paper): Output of the project details, organized
 - [`scratch`](https://github.com/kloo49/kyl214final/tree/main/scratch): prior drafts of scripts, for my personal use.
 - `1_clean_data.R`: Data wrangling from the raw data of the 4 sites.
+- `instructor-feedback.md`: Personal comments on collaboration.
 - `peer-assessment.md`: Peer assessment of the project specs.
 - `self-assessment.md`: Personal assessment of the project specs.
 
